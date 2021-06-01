@@ -25,7 +25,12 @@ class _MapScreenState extends State<MapScreen> {
       _pickedLocation = position;
       myMarker = [];
       myMarker.add(
-        Marker(markerId: MarkerId("m1"), position: _pickedLocation),
+        Marker(
+          markerId: MarkerId("m1"),
+          position: _pickedLocation ??
+              LatLng(widget.initialLocation.latitude,
+                  widget.initialLocation.longitude),
+        ),
       );
     });
   }
